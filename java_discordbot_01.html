@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang = "zh-Hant-TW">
+	<head>
+		<meta charset = "utf-8">
+		<title> XiaoDong的小天地 - 文章</title>
+		<meta name = "description" conteat = "XiaoDong的廢文空間，歡迎參觀">
+
+
+		<link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+		<link href = "css/pic.css" rel="stylesheet">
+		<link href = "css/style.css" rel="stylesheet">
+
+		<script LANGUAGE="JavaScript">
+
+		   function showalert(){
+     			alert("點我幹嘛?\n都說要開始探索了還不去逛逛?");
+   		}
+		 </script>
+	</head>
+
+	<body>
+		<div id="article" class="big-bg">
+		<header class="page-header wrapper">
+			<div class="avatar">
+				<img src="images/avatar.png" alt="Avatar" class="avatar">
+				<a href="index.html"><h1>&nbsp;&nbsp;XiaoDong的小天地</h1></a>
+			</div>
+
+
+			<nav>
+				<ul class = "main-nav" class="page-header">
+					<a href="works.html"><li> 一些作品 </li></a>
+					<a href="java_discordbot_01.html"><li> 一些文章</li> </a>
+					<a href="findme.html"><li> 聯絡小東 </li></a>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="wrapper">
+			<h2 class="page-title">Article</h2>
+		</div>
+		</div>
+
+		<div class="article-contents wrapper">
+			<article>
+				<header class="post-info">
+					<h2 class="post-title">從0開始用Java編寫Discord 機器人!</h2>
+					<p class="post-date">11/14 <span>2021</span></p>
+					<p class="post-cat">程式語言</p>
+				</header>
+				<div class="article-content">
+					<h1><span style="font-family: impact, sans-serif;">Preface</span></h1>
+					<p><!--more--></p>
+					<p>Discord上的機器人百百種，但總是無法完全達到你的要求。既然這樣，不如自己寫一隻自己的機器人吧~</p>
+					<p>如果有任何說錯或者不清楚的地方，都可以告知我歐歐歐~</p>
+					<h1><span style="font-family: impact, sans-serif;">Prepare</span></h1>
+					<ol>
+						<li><strong>IDE(整合開發環境):  </strong>不專業的來說，就是寫程式的地方，有興趣的可以上網找詳細說明~ 這裡我所使用的是 <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA，</a>大家可以先下載下來~</li>
+						<li><strong>Java的基礎知識: </strong>至少if else之類的基礎語法要先稍微了解一下，才不會都聽不懂喔~ 筆者自己也不是專業開發者，但是這樣寫下來發現簡單的Bot也不需要用到太複雜的知識啦w</li>
+						<li><strong>一隻機器人: </strong>在下面會說明~</li>
+						<li><strong>一個測試用伺服器: </strong><del>否則別人會把你當智障</del></li>
+					</ol>
+					<p>那我們就開始囉~</p>
+					<h1><span style="font-family: impact, sans-serif;">Start</span></h1>
+					<p>我們今天不會有程式的解釋，只會先讓大家把一些東西設定好，然後至少讓機器人上線~</p>
+					<p></p>
+					<p><strong>首先我們先創建一個專案，我們今天是用Maven項目來做教學，所以</strong><strong>左邊的地方記得要選取Maven~</strong></p>
+					<p><strong>當然如果你要用Gradle也是可以的，等等該複製的都會都會給.w.</strong></p>
+					<p><strong>接著輸入你的專案名稱就ok囉~</strong></p>
+					<p><span style="text-decoration: underline;">註:如果是第一次寫Java的話你需要安裝JDK，在最上面的Project SDK點下去之後會有Add SDK -&gt; Download JDK，<br /></span></p>
+					<p>接著選一個版本下載就好囉(不知道要選啥就跟我選一樣的吧XD)</p>
+					<p><img src="https://img.onl/K00GDV" width="843" height="683" alt="" /></p>
+					<p>創建好專案之後我們點到pom.xml</p>
+					<p><img src="https://img.onl/dTqaaq" alt="" /></p>
+					<p>接著你會看到一托拉哭的東西不要害怕xd，我們沒有要一直用這些東西</p>
+					<p>我們到 <a href="https://github.com/DV8FromTheWorld/JDA">JDA 的Github</a> ，找到Download，把Maven下面那些通通複製起來~</p>
+					<p>JDA(Java Discord API) 就是我們這次寫機器人要用到的東東唷~</p>
+					<p><img src="https://img.onl/JALBby" alt="" /></p>
+					<p>把dependency的</p>
+					<p>&lt;version&gt;<span style="color: #ff0000;">VERSION</span>&lt;version&gt;<span style="color: #000000;"> </span></p>
+					<p>的地方改成我圈起來的那個版本(每個人去看的時候版本可能都不同了)</p>
+					<p></p>
+					<p><strong>接著貼到pom.xml</strong></p>
+					<p><img src="https://img.onl/x5k3Wv" alt="" /></p>
+					<p><strong>接著在空白處右鍵<br />Maven -&gt; Reload project</strong></p>
+					<p>這樣他就會讀到我們的JDA囉</p>
+					<p><img src="https://img.onl/As7xR2" alt="" /></p>
+					<p>接下來我們要創建一個Class，作為我們的主程式~(名稱可以隨便打，但是你要知道你的這個Class是在做什麼的。未來的變數命名也是，<del>養成良好習慣XD</del>)</p>
+					<p><img src="https://img.onl/YKdF6i" alt="" /></p>
+					<p>那麼IDE的部分先到這邊，接下來我們要創建一個機器人</p>
+					<p>我們到<a href="https://discord.com/developers/docs/intro">Discord的開發者網站</a></p>
+					<p>選擇New Application</p>
+					<p><img src="https://img.onl/9l2k5L" alt="" /></p>
+					<p>起個名字</p>
+					<p></p>
+					<p><img src="https://img.onl/mme1oi" alt="" /></p>
+					<p></p>
+					<p>點到Bot -&gt; Add Bot</p>
+					<p><img src="https://img.onl/w8cBcu" alt="" /></p>
+					<p>OAuth2 把畫面中的東東打勾起來</p>
+					<p><img src="https://img.onl/z0FAzh" alt="" /></p>
+					<p>複製連結貼到網址，就可以把機器人邀進你的伺服器囉!</p>
+					<p>接下來到Bot介面</p>
+					<p>把你的Token複製下來~</p>
+					<p><img src="https://img.onl/TsOK8P" alt="" /></p>
+					<p><span style="font-size: 24pt;"><strong><span style="color: #ff0000;">TOKEN絕對不要外流!!</span></strong></span></p>
+					<p><span style="font-size: 24pt;"><strong><span style="color: #ff0000;">TOKEN絕對不要外流!!</span></strong></span></p>
+					<p><span style="font-size: 24pt;"><strong><span style="color: #ff0000;">TOKEN絕對不要外流!!</span></strong></span></p>
+					<p>很重要所以講三遍，因為有Token的人就可以隨意的搞你的機器人，如果你給予你的機器人權限很大，那他可以直接把你的伺服器摧毀掉OAO</p>
+					<p>以上都做完之後，你就把東西都設定完了~我們可以開始來編寫機器人了!!</p>
+					<p><img src="https://img.onl/UDImDP" alt="" /></p>
+					<p>我們一開始先直接把這個部分打上去<del>手打一遍印象深刻加油</del>，下一章開始才會開始解說~</p>
+					<p>基本上這裡我都是直接複製貼上，不會有太多的更改，所以這裡真的無法理解的話也沒關係，<del>因為筆者自己也不是很理解</del>，不過我會盡量說明</p>
+					<p>打完之後，我們點選右上角的Run</p>
+					<p><img src="https://img.onl/BgwRCs" alt="" /></p>
+					<p>看到Finish Loading 的時候就OK囉</p>
+					<p><img src="https://img.onl/YevgKL" alt="" /></p>
+					<p>回到你的伺服器，你會發現你的機器人上線囉~ 恭喜你製作了你的第一個機器人!!</p>
+					<p><img src="https://img.onl/r0LMfP" alt="" /></p>
+					<h1><span style="font-family: impact, sans-serif;">Preview</span></h1>
+					<p>下一章我們會介紹事件監聽，讓機器人針對特定字句做回應等等~</p>
+					<p>敬請期待囉!!</p>
+					<h1><span style="font-family: impact, sans-serif;"><strong>Epilogue</strong></span></h1>
+					<p>如果有哪裡可以改進的話請不吝指教:)</p>
+					<p>最後感謝大家閱讀這篇文章，有任何問題也可以到Discord找我歐 XiaoDong#0907</p>
+				</div>
+			</article>
+
+			<aside>
+				<h3 class="sub-title">類別</h3>
+				<ul class="sub-menu">
+					<li><a herf="article.html">從0開始用Java編寫Discord 機器人!</a></li>
+				</ul>
+
+				<h3 class="sub-title">關於這裡</h3>
+				<p>這裡可能會放一些小東的各種廢話有可能會有程式上的心得分享，或者是生活中一些趣事，抑或是遊戲上的酷東西。大家可以來看看歐</p>
+			</aside>
+		</div>
+
+		<footer>
+			<div class="wrapper">
+				<p><small>&copy; 2021 XiaoDong</small></p>
+		</footer>
+	</body>
+
+</html>

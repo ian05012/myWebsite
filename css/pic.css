@@ -1,0 +1,29 @@
+
+.big-bg{
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.avatar:hover{
+  color: #0072E3;
+}
+
+.avatar img{
+        float:left;
+        margin-left: 20px;
+        margin-top: 14px;
+        vertical-align: middle;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+    }
+
+.avatar a{
+  color: #432;
+}
+
+.avatar h1{
+        float:right;
+        margin-top: 10px;
+}
