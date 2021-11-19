@@ -16,12 +16,6 @@
 		<link href = "../../css/pic.css" rel="stylesheet">
 		<link href = "../../css/style.css" rel="stylesheet">
 
-		<script LANGUAGE="JavaScript">
-
-		   function showalert(){
-     			alert("點我幹嘛?\n都說要開始探索了還不去逛逛?");
-   		}
-		 </script>
 	</head>
 
 	<body>
@@ -50,9 +44,89 @@
 		<div class="article-contents wrapper">
 			<article>
 				<header class="post-info">
-					<h2 class="post-title">小東是大帥逼</h2>
-					<p class="post-date">11/15 <span>2021</span></p>
-					<p class="post-cat">實話實說系列</p>
+					<h1><span>Preface</span></h1>
+上章我們成功讓Bot運作了！這章我們會開始說明程式的內容。
+<h1><span>Start</span></h1>
+先來看看我們上次的程式碼:
+
+<del>以下可能錯誤百出敬請見諒</del><code><span>
+<img src="https://img.onl/aQXReA" alt="" width="1047" height="710" class="" /></span>
+</code>
+
+<code></code>
+
+這麼多東西，其實他的主體是
+
+<span style="font-size: 14pt;"><strong><span class="pl-smi">JDA</span> jda <span class="pl-k">=</span> <span class="pl-smi">JDABuilder</span><span class="pl-k">.</span>createDefault(<span class="pl-s"><span class="pl-pds">"</span>token<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>build();</strong></span>
+
+
+上面看不懂也沒關係，<del>因為我也不懂</del>
+
+總之，創建一個JDA對象是透過 <strong>JDABuilder</strong> 類來完成的
+
+在之中丟上你的Token然後建構，這樣你的程式就會連上機器人了~
+
+<span style="font-size: 18pt;"><strong>那麼中間這堆可怕的東西又是甚麼呢?</strong></span>
+
+<strong>GatewayIntent 會影響 Discord 要不要發送特定事件給你</strong>
+<div class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" role="article" data-list-item-id="chat-messages___chat-messages-893483675965079602" aria-labelledby="message-username-893477351638327306 uid_1 message-content-893483675965079602 uid_2 message-timestamp-893483675965079602" aria-describedby="">
+<div class="contents-2mQqc9">
+<div id="message-content-893483675965079602" class="markup-2BOw-j messageContent-2qWWxC">這個就是告訴 Discord</div>
+</div>
+</div>
+<div class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" role="article" data-list-item-id="chat-messages___chat-messages-893483690930364477" aria-labelledby="message-username-893477351638327306 uid_1 message-content-893483690930364477 uid_2 message-timestamp-893483690930364477" aria-describedby="">
+<div class="contents-2mQqc9">
+<div id="message-content-893483690930364477" class="markup-2BOw-j messageContent-2qWWxC">什麼東西要通知你</div>
+</div>
+</div>
+<div class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" role="article" data-list-item-id="chat-messages___chat-messages-893483702875734026" aria-labelledby="message-username-893477351638327306 uid_1 message-content-893483702875734026 uid_2 message-timestamp-893483702875734026" aria-describedby="">
+<div class="contents-2mQqc9">
+<div id="message-content-893483702875734026" class="markup-2BOw-j messageContent-2qWWxC">什麼東西不用</div>
+</div>
+</div>
+<div class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" role="article" data-list-item-id="chat-messages___chat-messages-893483727529852938" aria-labelledby="message-username-893477351638327306 uid_1 message-content-893483727529852938 uid_2 message-timestamp-893483727529852938" aria-describedby="">
+<div class="contents-2mQqc9">
+<div id="message-content-893483727529852938" class="markup-2BOw-j messageContent-2qWWxC">因為你有一些機器人</div>
+</div>
+<div class="contents-2mQqc9">
+<div id="message-content-893483749310869514" class="markup-2BOw-j messageContent-2qWWxC">可能根本就不需要特定事件</div>
+</div>
+<div class="contents-2mQqc9">
+<div id="message-content-893483840088203304" class="markup-2BOw-j messageContent-2qWWxC">所以 Discord 就不需要特別給你的機器人發送通知</div>
+</div>
+<div class="contents-2mQqc9">
+<div id="message-content-893483852306198599" class="markup-2BOw-j messageContent-2qWWxC">節省流量</div>
+<div>也節省運算</div>
+<div></div>
+</div>
+</div>
+<div class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" role="article" data-list-item-id="chat-messages___chat-messages-901277939755261952" aria-labelledby="message-username-901277615673966622 uid_1 message-content-901277939755261952 uid_2 message-timestamp-901277939755261952" aria-describedby="">
+<div class="contents-2mQqc9">
+<div id="message-content-901277939755261952" class="markup-2BOw-j messageContent-2qWWxC"><strong>CacheFlag 則是 JDA 用什麼策略保留收到的資料</strong></div>
+</div>
+</div>
+例如我今天要寫一個檢測髒話的功能
+有髒話就刪除訊息
+這樣的話
+你根本不會去在意成員的上限狀態，暱稱
+之類的
+那程式就不需要花記憶體去記得你的成員
+
+(以上感謝白貓補充， Discord: <strong><span class="username-2b1r56 headerTagUsernameNoNickname-2-Y5Ct headerTagUsernameBase-1NqrY5">~lightCat~ 白貓</span></strong><span class="headerTagDiscriminatorNoNickname-D-AYUN discrimBase-24vY8o"><strong>#1873</strong>)</span>
+
+以上如果真的無法理解，就把整個複製下來貼上去然後改Token吧~
+
+筆者在主程式的地方其實也是霧煞煞，但是做了幾隻機器人下來
+
+發現大部分會用到的事件大概就這些了，所以大家也不用另外改動他
+
+就複製貼上就好了XD
+
+<strong>但是接下來的就要開始理解他囉!!我們繼續寫下去!!</strong>
+
+我們先創建一個新的類別，這裡我把他取作Listener
+
+<img src="https://img.onl/8MO4D" alt="" />
 				</header>
 
 
@@ -60,7 +134,10 @@
 
 			<aside>
 				<h3 class="sub-title">類別</h3>
+
+
 				<ul class="sub-menu">
+
 					<li><a href="java_discordbot_01.html">從0開始用Java編寫Discord 機器人!</a></li>
 					<li><a href="java_discordbot_02.html">小東是大帥逼!</a></li>
 				</ul>
