@@ -93,6 +93,8 @@ img {
 #article .page-title{
   text-align: center;
 }
+
+
 /*=================================footer============================================*/
 footer{
   background: #432;
@@ -116,6 +118,7 @@ aside{
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
+  font-family: 'Noto Sans TC', sans-serif;
 }
 .post-info{
   position: relative;

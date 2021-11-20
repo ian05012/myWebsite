@@ -15,6 +15,9 @@
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 		<link href = "../../css/pic.css" rel="stylesheet">
 		<link href = "../../css/style.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 
 	</head>
 
@@ -49,92 +52,122 @@
 					<p class="post-date">11/14 <span>2021</span></p>
 					<p class="post-cat">從0開始用Java編寫Discord 機器人!</p>
 				</header>
-					<h1><span>Preface</span></h1>
-上章我們成功讓Bot運作了！這章我們會開始說明程式的內容。
-<h1><span>Start</span></h1>
-先來看看我們上次的程式碼:
+				<h1><span style="font-family: impact, sans-serif;">Preface</span></h1>
+				<h1><span style="font-family: impact, sans-serif;">Preface</span></h1>
+		<pre>上章我們成功讓Bot運作了！這章我們會開始說明程式的內容。</pre>
+		<h1><span style="font-family: impact, sans-serif;">Start</span></h1>
+		<pre>首先我們先來看看上次的程式碼</pre>
+		<img src="https://img.onl/a1vGWy" alt="" />
+		<pre>在JDA的Github範例中，他提供給我們的範例長這樣</pre>
+		<pre><img src="https://img.onl/BE4rgA" alt="" />
+		其實只要這樣你的機器人就可以運行了~
+		我們要創建一個JDA對象是透過 <strong>JDABuilder</strong> 類來完成的
+		在之中丟上你的Token然後建構，這樣你的程式就會連上機器人了~</pre>
+		<span style="font-size: 18pt;"><strong>那麼中間這堆可怕的東西又是要做甚麼呢?</strong></span>
+		<pre><strong style="font-size: 14pt;">GatewayIntent 會影響 Discord 要不要發送特定事件給你</strong></pre>
+		<pre>這個就是告訴Discord
+		什麼東西要通知你
+		什麼東西不用
+		因為你有一些機器人
+		可能根本就不需要特定事件
+		所以 Discord 就不需要特別給你的機器人發送通知
+		節省流量
+		也節省運算</pre>
+		<div class="contents-2mQqc9">
+		<pre id="message-content-901277939755261952" class="markup-2BOw-j messageContent-2qWWxC"><span style="font-size: 14pt;"><strong>CacheFlag 則是 JDA 用什麼策略保留收到的資料</strong></span></pre>
+		</div>
+		<pre>例如我今天要寫一個檢測髒話的功能
+		有髒話就刪除訊息
+		這樣的話
+		你根本不會去在意成員的上限狀態，暱稱
+		之類的
+		那程式就不需要花記憶體去記得你的成員
 
-<del>以下可能錯誤百出敬請見諒</del><code><span>
-<img src="https://img.onl/aQXReA" alt="" width="1047" height="710" class="" /></span>
-</code>
+		(以上感謝白貓補充， Discord: <strong><span class="username-2b1r56 headerTagUsernameNoNickname-2-Y5Ct headerTagUsernameBase-1NqrY5">~lightCat~ 白貓</span></strong><span class="headerTagDiscriminatorNoNickname-D-AYUN discrimBase-24vY8o"><strong>#1873</strong>)</span>
 
-<code></code>
+		以上如果真的無法理解，就把整個複製下來貼上去然後改Token吧~
+		筆者在主程式的地方其實也是霧煞煞，但是做了幾隻機器人下來
+		發現大部分會用到的事件大概就這些了，所以大家也不用另外改動他
+		就複製貼上就好了XD
+		<strong><span style="color: #ff0000;">但是接下來的就要開始理解他囉!!我們繼續寫下去!!</span>
+		</strong>
+		我們先創建一個新的類別，這裡我把他取作Listener
+		<img src="https://img.onl/llsEut" alt="" class="" /></pre>
+		<pre>接下來輸入以下的程式碼</pre>
+		<img src="https://img.onl/zvHsdp" alt="" />
+		<pre>首先我們要繼承 ListenerAdapter 這個父類別，它的作用是提供很多事件來讓你監聽
 
-這麼多東西，其實他的主體是
+		接下來我們寫一個方法來監聽訊息，因為是監聽事件基本上不需要回傳值，設為void
 
-<span style="font-size: 14pt;"><strong><span class="pl-smi">JDA</span> jda <span class="pl-k">=</span> <span class="pl-smi">JDABuilder</span><span class="pl-k">.</span>createDefault(<span class="pl-s"><span class="pl-pds">"</span>token<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>build();</strong></span>
+		呼叫的名稱可以自訂，但其實你也不會呼叫到他啦~ 不過我建議跟事件同名，這樣未來要找這個方法的時候就一目了然~
 
+		括號裡面的話就是要監聽的事件啦~ 因為在這裡我們是要監聽訊息，所以使用 <strong>GuildMessageReceivedEvent</strong>
 
-上面看不懂也沒關係，<del>因為我也不懂</del>
-
-總之，創建一個JDA對象是透過 <strong>JDABuilder</strong> 類來完成的
-
-在之中丟上你的Token然後建構，這樣你的程式就會連上機器人了~
-
-<span style="font-size: 18pt;"><strong>那麼中間這堆可怕的東西又是甚麼呢?</strong></span>
-
-<strong>GatewayIntent 會影響 Discord 要不要發送特定事件給你</strong>
-<div class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" role="article" data-list-item-id="chat-messages___chat-messages-893483675965079602" aria-labelledby="message-username-893477351638327306 uid_1 message-content-893483675965079602 uid_2 message-timestamp-893483675965079602" aria-describedby="">
-<div class="contents-2mQqc9">
-<div id="message-content-893483675965079602" class="markup-2BOw-j messageContent-2qWWxC">這個就是告訴 Discord</div>
-</div>
-</div>
-<div class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" role="article" data-list-item-id="chat-messages___chat-messages-893483690930364477" aria-labelledby="message-username-893477351638327306 uid_1 message-content-893483690930364477 uid_2 message-timestamp-893483690930364477" aria-describedby="">
-<div class="contents-2mQqc9">
-<div id="message-content-893483690930364477" class="markup-2BOw-j messageContent-2qWWxC">什麼東西要通知你</div>
-</div>
-</div>
-<div class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" role="article" data-list-item-id="chat-messages___chat-messages-893483702875734026" aria-labelledby="message-username-893477351638327306 uid_1 message-content-893483702875734026 uid_2 message-timestamp-893483702875734026" aria-describedby="">
-<div class="contents-2mQqc9">
-<div id="message-content-893483702875734026" class="markup-2BOw-j messageContent-2qWWxC">什麼東西不用</div>
-</div>
-</div>
-<div class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" role="article" data-list-item-id="chat-messages___chat-messages-893483727529852938" aria-labelledby="message-username-893477351638327306 uid_1 message-content-893483727529852938 uid_2 message-timestamp-893483727529852938" aria-describedby="">
-<div class="contents-2mQqc9">
-<div id="message-content-893483727529852938" class="markup-2BOw-j messageContent-2qWWxC">因為你有一些機器人</div>
-</div>
-<div class="contents-2mQqc9">
-<div id="message-content-893483749310869514" class="markup-2BOw-j messageContent-2qWWxC">可能根本就不需要特定事件</div>
-</div>
-<div class="contents-2mQqc9">
-<div id="message-content-893483840088203304" class="markup-2BOw-j messageContent-2qWWxC">所以 Discord 就不需要特別給你的機器人發送通知</div>
-</div>
-<div class="contents-2mQqc9">
-<div id="message-content-893483852306198599" class="markup-2BOw-j messageContent-2qWWxC">節省流量</div>
-<div>也節省運算</div>
-<div></div>
-</div>
-</div>
-<div class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" role="article" data-list-item-id="chat-messages___chat-messages-901277939755261952" aria-labelledby="message-username-901277615673966622 uid_1 message-content-901277939755261952 uid_2 message-timestamp-901277939755261952" aria-describedby="">
-<div class="contents-2mQqc9">
-<div id="message-content-901277939755261952" class="markup-2BOw-j messageContent-2qWWxC"><strong>CacheFlag 則是 JDA 用什麼策略保留收到的資料</strong></div>
-</div>
-</div>
-例如我今天要寫一個檢測髒話的功能
-有髒話就刪除訊息
-這樣的話
-你根本不會去在意成員的上限狀態，暱稱
-之類的
-那程式就不需要花記憶體去記得你的成員
-
-(以上感謝白貓補充， Discord: <strong><span class="username-2b1r56 headerTagUsernameNoNickname-2-Y5Ct headerTagUsernameBase-1NqrY5">~lightCat~ 白貓</span></strong><span class="headerTagDiscriminatorNoNickname-D-AYUN discrimBase-24vY8o"><strong>#1873</strong>)</span>
-
-以上如果真的無法理解，就把整個複製下來貼上去然後改Token吧~
-
-筆者在主程式的地方其實也是霧煞煞，但是做了幾隻機器人下來
-
-發現大部分會用到的事件大概就這些了，所以大家也不用另外改動他
-
-就複製貼上就好了XD
-
-<strong>但是接下來的就要開始理解他囉!!我們繼續寫下去!!</strong>
-
-我們先創建一個新的類別，這裡我把他取作Listener
-
-<img src="https://img.onl/8MO4D" alt="" />
+		那他其實有非常非常多可以選擇，之後可能會再介紹一些，但我們不可能把它全部講完，所以有興趣的可以到 <a href="https://ci.dv8tion.net/job/JDA/javadoc/net/dv8tion/jda/api/events/Event.html">這裡</a> 看看有哪些事件可以用窩
 
 
 
+		首先我們要先判斷發言的事不是機器人，如果你沒有做這件事情的話，會發生以下慘況...</pre>
+		<img src="https://img.onl/DnxQPL" alt="" />
+		<pre>因為你只是單純的監聽訊息事件，那機器人又會監聽到自己發出的那個訊息，如此一來就進入無限循環zzz
+
+		所以我們要先判斷發言者是不是機器人，如果是的話，就return掉
+
+		</pre>
+		<pre><strong><span style="font-size: 14pt;">Member vs User</span></strong>
+
+		這兩者有甚麼差異呢?
+
+		Member是指在伺服器中的成員
+
+		User是指Discord中的用戶
+
+
+
+		因此我們要先從event中取得伺服器中發言的那個成員，再取得他的用戶資料，進而判斷他是不是機器人
+
+		我們再取得事件發生的那個頻道，然後發送訊息。
+
+
+
+		<span style="font-size: 14pt;"><strong>queue()是甚麼?
+		</strong><span style="font-size: 12pt;">他的概念有點像是確認執行這個動作，當你派給他一個動作的時候他並不會執行，因此你要按下「確認」他才會動作
+		不過你如果忘記打這個的話我們的Intellj還是會很貼心的給你提醒~
+		<img src="https://img.onl/d6KRwQ" alt="" />
+		</span></span></pre>
+		<pre>做了這麼多，你會發現機器人還是不理你，因為你還沒有把這個class給new出來~
+
+		那我們再主程式加上addEventListeners()，功用就是字面上的意思，然後把它new在裡面</pre>
+		<img src="https://img.onl/t2yJ" alt="" />
+		<pre>然後到你的伺服器打字看看~他就說話了~</pre>
+		<img src="https://img.onl/Ia7LAm" alt="" />
+		<pre>那你會發現不管你說甚麼，機器人總是會講同一句話(真廢
+
+		最後我們來寫機器人針對特定關鍵字來做回覆吧~</pre>
+		<img src="https://img.onl/7duRqZ" alt="" />
+		<pre>我們先取得使用者說甚麼，為甚麼不能直接getMessage()要再多一個getContentDisplayer()呢?
+
+		你會發現前者回傳的是一個Message的資料，後者回傳的是一個String，也就是實際上使用者發送的訊息
+
+		接下來判斷如果使用者說「hi」(字串記得用「equals()」而不是「==」)，就回覆他「你好啊~」</pre>
+		<img src="https://img.onl/gkjy9Q" alt="" />
+		<pre>當然你要判斷很多種的話也可以用switch case</pre>
+		<img src="https://img.onl/xMIx98" alt="" />
+
+		<img src="https://img.onl/9sNbtm" alt="" width="255" height="403" />
+		<pre>那其實以上只是在說明如何監聽訊息，實際上我當然不會這樣寫xd
+
+		因為你會發現如果今天你的回應句非常非常多，那你的程式碼就會很冗長
+
+		那你會發現我們是 <span style="color: #ff0000;"><strong>一個觸發句對應一個回應句</strong> </span>
+
+		<span style="color: #000000;">那就可以使用 <span style="color: #ff0000;">Map <span style="color: #000000;">這個工具 他也是一個key對應一個value</span></span></span>
+
+		那實際上要如何製作，就交給大家自己想想看啦~
+
+		或許之後我會在提供我的寫法出來
+
+		那這次的教學就到這邊啦，一樣有問題都可以到Discord來找我歐歐，掰掰!!</pre>
 			</article>
 
 			<aside>
