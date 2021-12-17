@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang = "zh-Hant-TW">
+	<head>
+		<meta charset = "utf-8">
+		<title> 一個簡單的搶紅包插件! </title>
+		<meta name = "description" conteat = "XiaoDong的廢文空間，歡迎參觀">
+
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+		<link href = "../css/pic.css" rel="stylesheet">
+		<link href = "../css/works.css" rel="stylesheet">
+
+	</head>
+
+	<body>
+		<div id="article" class="big-bg">
+		<header class="page-header wrapper">
+			<div class="avatar">
+				<img src="../images/avatar.png" alt="Avatar" class="avatar">
+				<a href="../index.html"><h1>&nbsp;&nbsp;XiaoDong的小天地</h1></a>
+			</div>
+			
+
+			<nav>
+				<ul class = "main-nav" class="page-header">
+					<a href="../works.html"><li> 一些作品 </li></a>
+					<a href="../article/java_discordbot/java_discordbot_01.html"><li> 一些文章</li> </a>
+					<a href="../findme.html"><li> 聯絡小東 </li></a>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="wrapper">
+			<h2 class="page-title">Works</h2>
+		</div>
+		</div>
+		<div class="article-contents wrapper">
+			<article>
+				<header class="post-info">
+					<h2 class="post-title">一個簡單的搶紅包插件!</h2>
+					<p class="post-date">2021/12/17</p>
+					<p class="post-cat">Minecraft plugin</p>
+				</header>
+
+				<h2 style="color: #000000">前言:</h2>
+
+<p>不知道哪天心血來潮想到小時候玩的全民槍戰有一個搶紅包的功能，就把他做成插件了，雖然功能幾乎完全不一樣xd</p>
+<br></br>
+
+<p><strong>特色</strong>: 由玩家自行發送紅包，而他人能否獲得紅包全憑手速。領取方法為輸入代碼，所以全靠玩家的打字速度來決定啦~</p>
+<p>此外，每當有一個人領取紅包後，發送人可以根據每個紅包的金錢量機率性獲得不同回饋，所以發送紅包的人也可以獲得獎勵。</p>
+<br></br>
+<p><strong> 注意事項 </strong>: 此插件如果沒有經過妥善的設定，有可能造成伺服器經濟膨脹，在 <strong> config.yml </strong> 有提供一些設定讓使用者自行設定</p>
+<br></br>
+<h2 style="color: #000000">示範影片:</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5rmCOAsjSmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2 style="font-style:italic">使用方法:</h2>
+
+<h3 style="color:#aaaaaa; font-style:italic">玩家指令:</h3>
+
+<div><strong>/moneygift giveaway &lt;總紅包錢數&gt; &lt;發送幾包&gt;</strong> - 發送禮包，代碼會同時發送至公頻</div>
+
+<h3 style="color:#aaaaaa; font-style:italic">玩家領取方法:</h3>
+
+<div><strong>直接在聊天室輸入紅包代碼，無須任何指令</div>
+
+
+<h3 style="color:#aaaaaa; font-style:italic">yml設定:</h3>
+
+<h2 style="color: #000000"> config.yml </h2>
+
+<p><img alt="config" src="https://img.onl/mBgONc"/></p>
+
+<h2 style="color: #000000"> reward.yml </h2>
+
+<p><img alt="config" src="https://img.onl/Lgls5v"/></p>
+
+<p>這裡需要說明一下</p>
+<div><p>開頭的<strong> 1 - 100 </strong> 代表的是單個紅包的金錢量，也就是<strong>總紅包錢數/發送幾包</strong>之後的數字會落在的區間</p></div>
+<p>例如: 我總共發送1000元，發送了20包，就會落在這個區間<p>
+<br></br>
+<p>下方的chance代表每次有人領取有幾%的機率會觸發回饋</p>
+<p>最後的command可以輸入很多個，但是每次運行只會隨機擇一來觸發</p>
+<br></br>
+
+
+<p> 最後附上載點---><a href="MoneyGift.jar" download="MoneyGift.jar">點我</a></p>
+
+
+<p>以上，感謝大家閱讀本文，也歡迎大家使用他~</p>
+
+<p>有任何問題可以到Discord找我~</p>
+
+			</article>
+
+		</div>
+
+		<footer>
+			<div class="wrapper">
+				<p><small>&copy; 2021 XiaoDong</small></p>
+			</div>
+		</footer>
+	</body>
+
+</html>
