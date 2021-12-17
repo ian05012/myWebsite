@@ -8,9 +8,15 @@ el.innerHTML=
 	
 	'<div class="panel"><ul class="sub-menu">' +
 	
-	'<li><a href="java_discordbot_01.html">[1]讓機器人運行吧!</a></li>' +
+	'<li><a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_01.html">[1]讓機器人運行吧!</a></li>' +
 	
-	'<li><a href="java_discordbot_02.html">[2]監聽事件</a></li></ul></div>' +
+	'<li><a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_02.html">[2]監聽事件</a></li></ul></div>' +
+	
+	'<button class="accordion">日常廢文</button>' +
+	
+	'<div class="panel"><ul class="sub-menu">' +
+	
+	'<li><a href="https://ian05012.github.io/myWebsite/article/daily/daily1.html">使用while迴圈作死</a></li></ul></div>' +
 	
 	'<h3 class="sub-title">關於這裡</h3>' +
 	
