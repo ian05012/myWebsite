@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang = "zh-Hant-TW">
+	<head>
+		<meta charset = "utf-8">
+		<title> XiaoDong的小天地 - 文章</title>
+		<meta name = "description" conteat = "XiaoDong的廢文空間，歡迎參觀">
+
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+		<link href = "../../css/pic.css" rel="stylesheet">
+		<link href = "../../css/style.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+
+	</head>
+
+	<body>
+		<div id="article" class="big-bg">
+		<header class="page-header wrapper">
+			<div class="avatar">
+				<img src="../../images/avatar.png" alt="Avatar" class="avatar">
+				<a href="../../index.html"><h1>&nbsp;&nbsp;XiaoDong的小天地</h1></a>
+			</div>
+
+
+			<nav>
+				<ul class = "main-nav" class="page-header">
+					<a href="../../works.html"><li> 一些作品 </li></a>
+					<a href="java_discordbot_01.html"><li> 一些文章</li> </a>
+					<a href="../../findme.html"><li> 聯絡小東 </li></a>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="wrapper">
+			<h2 class="page-title">Article</h2>
+		</div>
+		</div>
+
+		<div class="article-contents wrapper">
+
+			<article>
+				<header class="post-info">
+					<h2 class="post-title">Day.3 - 使用指令</h2>
+					<p class="post-date">12/19 <span>2021</span></p>
+					<p class="post-cat">從0開始用Java編寫Discord 機器人!</p>
+				</header>
+			<div class="article-content">
+				<h1>Preface</h1>
+
+<p>機器人都擁有許許多多的指令，那究竟要怎麼把它做出來ㄋ?</p>
+
+<h1>Start</h1>
+
+<p>今天我講算是蠻暴力但簡單的方法，畢竟這裡是給新手看的為主xd</p>
+
+<p>我自己所使用的是 <a href="https://youtu.be/XAMq0SoQ1Mg?t=701"><strong>這個影片</strong></a> 中所講解的方法，他在日後維護的話會比較方便閱讀，有興趣的可以試試看~</p>
+
+<p>不過我們今天還是使用新手方法吧!</p>
+
+<p>直接來看怎麼打，也是打在上次教學的監聽接收訊息裡面喔!</p>
+
+<p><img alt="" src="https://img.onl/6mVkq9" /></p>
+
+<p>每個機器人都會有一個自己的前墜，否則一大堆的機器人放在一起，你同個指令可能會觸發好多個機器人xd</p>
+
+<p>這裡我們一開始先宣告一個 <strong>prefix </strong>的字串來當作他的前墜。</p>
+
+<p>&nbsp;</p>
+
+<p>接著判斷接收到的訊息是不是指令，或者只是成員在聊天而已。</p>
+
+<p>所以我們取收到的訊息內容，判斷他的開頭是不是你的前墜。</p>
+
+<p>&nbsp;</p>
+
+<p>因為你可能會有很多個指令，所以宣告一個 <strong>command&nbsp;</strong>字串代表你的指令內容，其實就是把指令跟前墜分開來</p>
+
+<p>接著判斷你的指令內容是甚麼，這裡我隨便用 <strong>help</strong> 指令出來。</p>
+
+<p>如果以上事情都對了，那機器人就會發送一段訊息給你。</p>
+
+<p>實際效果如下:</p>
+
+<p><img alt="" src="https://img.onl/tusIC" /></p>
+
+<p>喔對，我們機器人有頭像跟名字了xd</p>
+
+<p>&nbsp;</p>
+
+<p>那如果你的指令有參數的話，我們在分離前墜跟指令內容的時候可以做點小變化</p>
+
+<p><img alt="" src="https://img.onl/Nlhd9r" /></p>
+
+<p>其實就是把你的字串切成一個陣列，切割點就是空格<span style="color:#95a5a6">(\\s是空格的正則表達式)</span>，例如你輸入&quot;-say 我好帥 真的啦&quot;</p>
+
+<p>就會切成 [ say , 我好帥 , 真的啦 ] (因為我們有先把&quot;-&quot;替換掉了)</p>
+
+<p>所以你索引值0的位置就會是指令內容，而後面的索引值就會是你的參數</p>
+
+<p>上面的效果如下:</p>
+
+<p><img alt="" src="https://img.onl/TxK9xk" /></p>
+
+<p>既然都做到這裡了，我們就把說話的這個功能做得好一點吧!</p>
+
+<p><img alt="" src="https://img.onl/zVZLCI" /></p>
+
+<p>實際效果:</p>
+
+<p><img alt="" src="https://img.onl/96PkT4" /></p>
+
+<p><img alt="" src="https://img.onl/CR85hS" /></p>
+
+<p>以上~ 感謝大家閱讀本文</p>
+
+<p>有任何問題也可以到Discord問我哦哦</p>
+
+	</div>
+			</article>
+
+			<aside>
+
+			</aside>
+		</div>
+
+		<footer>
+			<div class="wrapper">
+				<p><small>&copy; 2021 XiaoDong</small></p>
+		</footer>
+
+		<script src="../../js/inner-aside.js"></script>
+		<script src="../../js/accordion.js"></script>
+	</body>
+
+</html>

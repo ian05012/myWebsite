@@ -113,6 +113,9 @@ aside{
   width: 22%;
 }
 
+
+
+
 .article-contents{
   display: flex;
   justify-content: space-between;
@@ -287,4 +290,9 @@ input[type="submit"]{
   border:none;
   cursor:pointer;
   line-height: 1;
+}
+
+iframe{
+  float: right;
+  padding-bottom: 300px;
 }

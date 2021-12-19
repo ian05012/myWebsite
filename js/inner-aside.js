@@ -10,7 +10,9 @@ el.innerHTML=
 	
 	'<li><a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_01.html">[1]讓機器人運行吧!</a></li>' +
 	
-	'<li><a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_02.html">[2]監聽事件</a></li></ul></div>' +
+	'<li><a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_02.html">[2]監聽事件</a></li>' +
+	
+	'<li><a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_03.html">[3]使用指令</a></li></ul></div>' +
 	
 	'<button class="accordion">日常廢文</button>' +
 	
