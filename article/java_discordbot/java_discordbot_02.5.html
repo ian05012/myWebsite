@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang = "zh-Hant-TW">
+	<head>
+		<meta charset = "utf-8">
+		<title> XiaoDong的小天地 - 文章</title>
+		<meta name = "description" conteat = "XiaoDong的廢文空間，歡迎參觀">
+
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+		<link href = "../../css/pic.css" rel="stylesheet">
+		<link href = "../../css/style.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+
+	</head>
+
+	<body>
+		<div id="article" class="big-bg">
+		<header class="page-header wrapper">
+			<div class="avatar">
+				<img src="../../images/avatar.png" alt="Avatar" class="avatar">
+				<a href="../../index.html"><h1>&nbsp;&nbsp;XiaoDong的小天地</h1></a>
+			</div>
+
+
+			<nav>
+				<ul class = "main-nav" class="page-header">
+					<a href="../../works.html"><li> 一些作品 </li></a>
+					<a href="java_discordbot_01.html"><li> 一些文章</li> </a>
+					<a href="../../findme.html"><li> 聯絡小東 </li></a>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="wrapper">
+			<h2 class="page-title">Article</h2>
+		</div>
+		</div>
+
+		<div class="article-contents wrapper">
+
+			<article>
+				<header class="post-info">
+					<h2 class="post-title">Day.2的下午 - JDA更新</h2>
+					<p class="post-date">12/19 <span>2021</span></p>
+					<p class="post-cat">從0開始用Java編寫Discord 機器人!</p>
+				</header>
+			<div class="article-content">
+				<h1><span style="font-family:'Yuji Boku', sans-serif;">Preface</span></h1>
+				<p>痾...這裡是剛寫完Day 3的筆者，有人告訴我說最新的JDA的 <strong>GuildMessageReceivedEvent</strong>不能用了</p>
+				<p>所以中間插入一篇教大家怎麼改程式，我們 <a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_03.html"></a>也是用舊的寫法歐，大家就自己改一下~</p>
+					<h1><span style="font-family: 'Yuji Boku', sans-serif;">Start</span></h1>
+					<p>其實只要改一點點點啦，首先我們先到pom.xml</p>
+					<p>把repositories刪掉，我們不需要他了!!</p>
+					<p>同時也把dependency的版本升上去</p>
+					<img src="https://img.onl/JIz4F7" alt="" />
+					<p>reload maven之後你會發現你的東西瞬間報錯超多，不要方!</p>
+					<p>我們到事件監聽的class，把 <strong>GuildMessageReceivedEvent</strong> 改成 <strong>MessageReceivedEvent</strong></p>
+					<p>把上方import地方的有紅字那句整個刪掉</p>
+					<p>暴雷一下下次內容xd</p>
+					<p><img src="https://img.onl/SANWfQ" alt="" />
+					<p>這樣就可以喽</p>
+				</div>
+			</article>
+
+			<aside>
+
+			</aside>
+		</div>
+
+		<footer>
+			<div class="wrapper">
+				<p><small>&copy; 2021 XiaoDong</small></p>
+		</footer>
+
+		<script src="../../js/inner-aside.js"></script>
+		<script src="../../js/accordion.js"></script>
+	</body>
+
+</html>
