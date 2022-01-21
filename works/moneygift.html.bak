@@ -54,17 +54,17 @@
 <br></br>
 
 <p><strong>特色</strong>: 由玩家自行發送紅包，而他人能否獲得紅包全憑手速。領取方法為輸入代碼，所以全靠玩家的打字速度來決定啦~</p>
-<p>此外，發送紅包的人根據發送的金額可以機率獲得不同獎勵哦，也可以當作花錢抽獎(?。</p>
+<p>此外，每當有一個人領取紅包後，發送人可以根據每個紅包的金錢量機率性獲得不同回饋，所以發送紅包的人也可以獲得獎勵。</p>
 <br></br>
 <p><strong> 注意事項 </strong>: 此插件如果沒有經過妥善的設定，有可能造成伺服器經濟膨脹，在 <strong> config.yml </strong> 有提供一些設定讓使用者自行設定</p>
 <br></br>
-<h2 style="color: #000000">示範影片(舊版，但使用上差不多):</h2>
+<h2 style="color: #000000">示範影片:</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5rmCOAsjSmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 style="font-style:italic">使用方法:</h2>
 
 <h3 style="color:#aaaaaa; font-style:italic">玩家指令:</h3>
 
-<div><strong>/moneygift giveaway &lt;送多少錢&gt; </strong> - 發送禮包，代碼會同時發送至公頻</div>
+<div><strong>/moneygift giveaway &lt;總紅包錢數&gt; &lt;發送幾包&gt;</strong> - 發送禮包，代碼會同時發送至公頻</div>
 
 <h3 style="color:#aaaaaa; font-style:italic">玩家領取方法:</h3>
 
@@ -75,14 +75,15 @@
 
 <h2 style="color: #000000"> config.yml </h2>
 
-<p><img alt="config" src="https://img.onl/Z9W8OK"/></p>
+<p><img alt="config" src="https://img.onl/mBgONc"/></p>
 
 <h2 style="color: #000000"> reward.yml </h2>
 
 <p><img alt="config" src="https://img.onl/Lgls5v"/></p>
 
 <p>這裡需要說明一下</p>
-<div><p>開頭的<strong> 1 - 100 </strong> 代表的是發送金錢量的區間</p></div>
+<div><p>開頭的<strong> 1 - 100 </strong> 代表的是單個紅包的金錢量，也就是<strong>總紅包錢數/發送幾包</strong>之後的數字會落在的區間</p></div>
+<p>例如: 我總共發送1000元，發送了20包，就會落在這個區間<p>
 <br></br>
 <p>下方的chance代表每次有人領取有幾%的機率會觸發回饋</p>
 <p>最後的command可以輸入很多個，但是每次運行只會隨機擇一來觸發</p>
