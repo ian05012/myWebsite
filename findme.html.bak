@@ -42,16 +42,16 @@
 				<h2 class="page-title white">聯絡小東</h2>
 			  <form action="https://formspree.io/f/xvodweaz" method="POST">
 
-			    <label for="name">暱稱 Nick name</label>
+			    <label for="name">暱稱</label>
 			    <input type="text" name="name" placeholder="輸入你的暱稱"></input>
 
-			    <label for="text">Discord Name</label>
+			    <label for="text">Discord名稱</label>
 			    <input type="text" name="discord" placeholder="若無則不需要填"></input>
 
-					<label for="name">電子郵件 Email</label>
+					<label for="name">電子郵件</label>
 			    <input type="text" name="email" placeholder="填了我才有可能回覆你歐"></input>
 					<div class="bigger">
-						<label for="message">內容 Content</label>
+						<label for="message">內容</label>
 				 		<textarea name="message" placeholder="想說甚麼都可以歐"></textarea>
 					</div>
 			    <input type="submit" class="button" value="送出">
