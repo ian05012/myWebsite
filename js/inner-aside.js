@@ -14,7 +14,7 @@ el.innerHTML=
 	
 	'<li><a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_02.5.html">[2.5]JDA更新</a></li>' +
 	
-	'<li><a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_03.html">[3]使用指令</a></li>'
+	'<li><a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_03.html">[3]使用指令</a></li>' +
 	
 	'<li><a href="https://ian05012.github.io/myWebsite/article/java_discordbot/java_discordbot_04.html">[4]斜線指令</a></li></ul></div>' +
 	
