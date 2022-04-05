@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang = "zh-Hant-TW">
+	<head>
+		<meta charset = "utf-8">
+		<title> XiaoDong的小天地 - 文章</title>
+		<meta name = "description" conteat = "XiaoDong的廢文空間，歡迎參觀">
+
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+		<link href = "../../css/pic.css" rel="stylesheet">
+		<link href = "../../css/style.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+
+	</head>
+
+	<body>
+		<div id="article" class="big-bg">
+		<header class="page-header wrapper">
+			<div class="avatar">
+				<img src="../../images/avatar.png" alt="Avatar" class="avatar">
+				<a href="../../index.html"><h1>&nbsp;&nbsp;XiaoDong的小天地</h1></a>
+			</div>
+
+
+			<nav>
+				<ul class = "main-nav" class="page-header">
+					<a href="../../works.html"><li> 一些作品 </li></a>
+					<a href="java_discordbot_01.html"><li> 一些文章</li> </a>
+					<a href="../../findme.html"><li> 聯絡小東 </li></a>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="wrapper">
+			<h2 class="page-title">Article</h2>
+		</div>
+		</div>
+
+		<div class="article-contents wrapper">
+
+			<article>
+				<header class="post-info">
+					<h2 class="post-title">Day.4 - 斜線指令</h2>
+					<p class="post-date">4/5 <span>2022</span></p>
+					<p class="post-cat">從0開始用Java編寫Discord 機器人!</p>
+				</header>
+			<div class="article-content">
+				<h1>Preface</h1>
+
+<p>昨天我們教了如何監聽特定訊息來達到觸發指令的效果，這次我們要介紹Discord的另外一個功能 - 斜線指令(Slash Commands)!</p>
+
+<h1>Start</h1>
+
+<p>首先我們要先給機器人多一點點的權限!</p>
+
+<p>我們回到 <a href="https://discord.com/developers/applications"><strong>機器人控制面板</strong></a> 新增給他創造指令的權限</p>
+
+<p><img alt="" src="https://img.onl/AbcqIX" /></p>
+
+<p>然後再邀請他一次，權限就會被加上去了!</p>
+<br></br>
+<p>接著到我們的主Class，在build之後加上awaitReady</p>
+
+<p>這個的功用在他會把程式暫停在這個位置，直到我們的機器人成功上線</p>
+
+<p>如此一來，我們接下來要寫的東西才能成功被運行!</p>
+
+<p>會出現紅字是因為它會丟出例外，我們直接點選IDEA提示我們要做的事情就好了!</p>
+
+<p><img alt="" src="https://img.onl/SFMYon" /></p>
+
+<p>接下來我們要上傳我們的指令，有使用Guild註冊的也有使用JDA註冊的</p>
+
+<p>前者我們只能在伺服器中使用，而後者都可以，但我比較建議使用Guild上傳，因為使用JDA全局指令的的話最多需要1小時才會上傳到客戶端</p>
+
+<p>如果你的bot同時在很多伺服器的話，我們就要在每個伺服器分別上傳，於是我使用for迴圈來撰寫</p>
+
+<p><img alt="" src="https://img.onl/XmVOg6" /> </p>
+
+<p>&nbsp;</p>
+
+<p>重新啟動之後就可以看到我們的指令已經上傳Discord囉~</p>
+
+<p><img alt="" src="https://img.onl/gQrxjR" /> </p>
+
+<p>&nbsp;</p>
+
+<p>最後要怎麼來處理輸入指令之後的事情呢?</p>
+
+<p>我們到Listener的class，使用SlashCommandEvent來監聽我們指令的輸入</p>
+
+<p>這樣就可以喽!</p>
+
+<p><img alt="" src="https://img.onl/IPtV6k" /> </p>
+
+<p>實際效果如下:</p>
+
+<p><img alt="" src="https://img.onl/yF6eIN" /></p>
+
+<p>&nbsp;</p>
+
+<p>最後我們來介紹一下如何設定指令參數</p>
+
+<p>只需要在上傳指令的地方加入Options就好囉</p>
+
+<p><img alt="" src="https://img.onl/jJfFbJ" /></p>
+
+<p>第一格是Option Type是指輸入的種類，只要你輸入"OptionType."IDEA就會跳出很多的種類給你選擇</p>
+
+<p>要注意一下的是這裡的name在後面呼叫Options的時候會用到，所以不可以亂打歐</p>
+
+<p>而最後的布林值則是設定這個參數是否是必填的</p>
+
+<p>取得參數的方法也很簡單，只需要get Option的名稱就好囉!</p>
+
+<p>不過要注意取到的東西型別會是Option，所以JDA很貼心的讓我們可以取成不同的型別</p>
+
+<p>上面的效果如下:</p>
+
+<p><img alt="" src="https://img.onl/XG3o" /></p>
+
+<p>下次我們會繼續介紹Slash Command的好朋友 - Button要怎麼使用</p>
+
+<p>以上~ 感謝大家閱讀本文</p>
+
+<p>有任何問題也可以到Discord問我哦哦</p>
+
+	</div>
+			</article>
+
+			<aside>
+
+			</aside>
+		</div>
+
+		<footer>
+			<div class="wrapper">
+				<p><small>&copy; 2021 XiaoDong</small></p>
+		</footer>
+
+		<script src="../../js/inner-aside.js"></script>
+		<script src="../../js/accordion.js"></script>
+	</body>
+
+</html>
